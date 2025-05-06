@@ -12,7 +12,10 @@ import path from "path";
 dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+  origin : "https://chat-app-backend-production-023c.up.railway.app/api",
+  credentials :true
+}));
 
 
 app.use("/api/auth" , authRoutes);
