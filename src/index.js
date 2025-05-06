@@ -10,12 +10,16 @@ import cookieParser from 'cookie-parser';
 import path from "path";
 
 dotenv.config();
+
+// ✅ Enable CORS before any routes or socket.io
+const allowedOrigin = 'https://chat-app-frontend-for-production-gru5gx1jv.vercel.app';
+
+app.use(cors({
+  origin: allowedOrigin,
+  credentials: true,
+}));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  origin : 'https://chat-app-frontend-for-production-gru5gx1jv.vercel.app',
-  credentials :true
-}));
 
 
 app.use("/api/auth" , authRoutes);
