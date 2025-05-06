@@ -8,11 +8,7 @@ export const getUsersForSidebar = async (req, res) => {
     try {
         const loggedInUserId = req.user._id;
 
-        const receiverIds = await Message.distinct("reciverId", {
-            SenderId: loggedInUserId
-        });
-
-        const users = await User.find({ _id: { $in: receiverIds } }).select("-password");
+        const users = await User.find().select("-password");;
         console.log("This is the users", users);
         res.status(200).json(users);
 
