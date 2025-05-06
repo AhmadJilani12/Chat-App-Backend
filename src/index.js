@@ -21,6 +21,11 @@ app.use(cors({
 app.use("/api/auth" , authRoutes);
 app.use("/api/messages" , messageRoute);
 
+app.get("/" , (req , res)=>{
+
+res.send("yes i am on this ");
+
+});
 
 const PORT = process.env.PORT || 5001;
 
