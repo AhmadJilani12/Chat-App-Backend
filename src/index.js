@@ -11,13 +11,24 @@ import path from "path";
 
 dotenv.config();
 
-// ✅ Enable CORS before any routes or socket.io
-const allowedOrigin = 'https://chat-app-frontend-for-production-gru5gx1jv.vercel.app';
+
+const allowedOrigins = [
+  'https://chat-app-frontend-for-production-gru5gx1jv.vercel.app',
+  'https://chat-app-frontend-for-git-d0e7fa-ahmadali43a5gmailcoms-projects.vercel.app'
+];
 
 app.use(cors({
-  origin: allowedOrigin,
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
+
+
 app.use(express.json());
 app.use(cookieParser());
 
