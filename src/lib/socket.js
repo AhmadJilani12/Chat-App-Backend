@@ -7,7 +7,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin:'https://chat-app-backend-production-023c.up.railway.app/api',
+    origin:'https://chat-app-frontend-for-production-gru5gx1jv.vercel.app',
   },
 });
 

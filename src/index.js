@@ -13,7 +13,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin : "https://chat-app-backend-production-023c.up.railway.app/api",
+  origin : 'https://chat-app-frontend-for-production-gru5gx1jv.vercel.app',
   credentials :true
 }));
 
