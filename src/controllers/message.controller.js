@@ -8,9 +8,8 @@ export const getUsersForSidebar = async (req, res) => {
     try {
         const loggedInUserId = req.user._id;
 
-        const users = await User.find().select("-password");;
-        console.log("This is the users", users);
-        res.status(200).json(users);
+        const filterdUsers = await User.find({ _id: { $ne: loggedInUserId } }).select("-password");
+        res.status(200).json(filterdUsers);
 
     } catch (error) {
         console.log("Error in get Users for Sidebar: ", error.message);
