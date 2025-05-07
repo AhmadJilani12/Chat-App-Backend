@@ -6,17 +6,11 @@ import {app , server}  from './lib/socket.js';
 import dotenv from 'dotenv';
 import {connectDB}  from './lib/db.js';
 import cookieParser from 'cookie-parser';
-
+import { allowedOrigins } from './lib/cors.config.js';
 import path from "path";
 
 dotenv.config();
 
-
-const allowedOrigins = [
-  'https://chat-app-frontend-for-production.vercel.app',
-  'https://chat-app-frontend-for-production-gru5gx1jv.vercel.app',
-  'https://chat-app-frontend-for-git-d0e7fa-ahmadali43a5gmailcoms-projects.vercel.app'
-];
 
 app.use(cors({
   origin: function (origin, callback) {
